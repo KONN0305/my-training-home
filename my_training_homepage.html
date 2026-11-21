@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<title>筋トレホーム</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#151f30;--panel2:#1b2940;--text:#f3f6fb;--muted:#a9b6c9;--accent:#79c5ff;--line:#2c3a50;--good:#8fe0b0}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#101a2b 0%,var(--bg) 45%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.6}
+main{max-width:760px;margin:auto;padding:22px 16px calc(36px + env(safe-area-inset-bottom))}
+header{padding:12px 2px 18px}
+.eyebrow{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.12em}
+h1{font-size:27px;line-height:1.25;margin:7px 0}
+.sub{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0 18px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:12px}
+.stat b{display:block;font-size:19px}
+.stat span{font-size:11px;color:var(--muted)}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;position:sticky;top:0;padding:8px 0;background:rgba(11,18,32,.94);backdrop-filter:blur(12px);z-index:5}
+nav button{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:12px;padding:11px 5px;font-size:13px;font-weight:700}
+nav button.active{background:var(--accent);color:#081321;border-color:var(--accent)}
+section[hidden]{display:none}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0}
+h2{font-size:19px;margin:2px 0 12px}
+h3{font-size:16px;margin:0 0 5px}
+p{margin:6px 0}
+.muted{color:var(--muted);font-size:13px}
+.day{display:flex;gap:12px;align-items:flex-start}
+.daytag{min-width:43px;text-align:center;background:var(--panel2);border-radius:10px;padding:7px 4px;font-weight:800;color:var(--accent)}
+.daycontent{flex:1}
+.time{font-size:12px;color:var(--accent);font-weight:700}
+.rest{color:var(--muted)}
+.pill{display:inline-block;background:#24364e;color:#cce9ff;border-radius:999px;padding:3px 9px;font-size:11px;margin:3px 4px 0 0}
+.exercise{padding:13px 0;border-top:1px solid var(--line)}
+.exercise:first-of-type{border-top:0}
+.exercise p{font-size:13px;color:var(--muted)}
+.exercise strong{color:var(--text)}
+.checkrow{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.checkrow:first-of-type{border-top:0}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--good);flex:0 0 auto;margin:2px 0 0}
+.checkrow label{flex:1}
+.checkrow small{display:block;color:var(--muted);font-size:12px}
+.progress{height:9px;background:#26344a;border-radius:99px;overflow:hidden;margin:9px 0}
+.bar{height:100%;width:0;background:var(--good);transition:width .2s}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.action{border:1px solid var(--line);border-radius:11px;background:var(--panel2);color:var(--text);padding:9px 12px;font-size:12px}
+.action.primary{background:var(--accent);color:#081321;border-color:var(--accent);font-weight:800}
+.note{background:#18283a;border-left:3px solid var(--accent);padding:11px 12px;border-radius:8px;font-size:12px;color:#d2deec;margin-top:12px}
+footer{color:var(--muted);font-size:11px;text-align:center;margin-top:24px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="eyebrow">MY TRAINING</div>
+  <h1>筋トレホーム</h1>
+  <div class="sub">自宅・器具なし｜筋肉量アップを目指す週間プラン</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>170 cm</b><span>身長</span></div>
+  <div class="stat"><b>55 kg</b><span>現在の体重（目安）</span></div>
+  <div class="stat"><b>週4回</b><span>トレーニング日</span></div>
+</div>
+
+<nav aria-label="ページ切り替え">
+  <button class="active" data-tab="schedule">週間予定</button>
+  <button data-tab="guide">種目のやり方</button>
+  <button data-tab="check">実施チェック</button>
+</nav>
+
+<section id="schedule">
+  <div class="card">
+    <h2>1週間のスケジュール</h2>
+    <div class="day"><div class="daytag">月</div><div class="daycontent"><h3 class="rest">休息日</h3><p class="muted">通学の負担が大きい日。睡眠と食事を優先。</p></div></div>
+    <div class="exercise day"><div class="daytag">火</div><div class="daycontent"><div class="time">18:30〜19:05｜胸・肩・腕</div><p>腕立て伏せ／パイクプッシュアップ／ナロープッシュアップ／プランク</p></div></div>
+    <div class="exercise day"><div class="daytag">水</div><div class="daycontent"><div class="time">18:30〜19:05｜脚・腹筋</div><p>スクワット／リバースランジ／グルートブリッジ／デッドバグ</p></div></div>
+    <div class="exercise day"><div class="daytag">木</div><div class="daycontent"><h3 class="rest">休息日</h3><p class="muted">疲労回復の日。軽いストレッチ程度でOK。</p></div></div>
+    <div class="exercise day"><div class="daytag">金</div><div class="daycontent"><div class="time">10:00〜10:35｜背中・腕</div><p>Y-T-Wレイズ／スーパーマン／リバーススノーエンジェル（余裕があれば腕立て伏せ）</p></div></div>
+    <div class="exercise day"><div class="daytag">土</div><div class="daycontent"><h3 class="rest">休息日</h3><p class="muted">アルバイト後は無理せず休む。</p></div></div>
+    <div class="exercise day"><div class="daytag">日</div><div class="daycontent"><div class="time">15:30〜16:10｜全身</div><p>腕立て伏せ／スクワット／グルートブリッジ／プランク</p></div></div>
+  </div>
+  <div class="note">時間はこれまでの予定をもとにした目安です。帰宅が遅い日や疲れている日は、短縮・休みにして大丈夫。</div>
+</section>
+
+<section id="guide" hidden>
+  <div class="card">
+    <h2>トレーニング種目のやり方</h2>
+    <p class="muted">まずは回数よりフォームを優先。セット間は60〜90秒休憩。</p>
+    <div class="exercise"><h3>腕立て伏せ</h3><span class="pill">8〜12回 × 2セット</span><p>手は肩幅より少し広め。頭からかかとまでを一直線に保ち、胸を床に近づけて押し戻す。難しければ膝をついて行う。</p></div>
+    <div class="exercise"><h3>パイクプッシュアップ</h3><span class="pill">5〜8回 × 2セット</span><p>お尻を高く上げ、体を「く」の字にする。頭を両手の間より少し前へ下ろし、肩で床を押す。首に無理な力を入れない。</p></div>
+    <div class="exercise"><h3>ナロープッシュアップ</h3><span class="pill">5〜8回 × 2セット</span><p>手幅を肩幅程度か少し狭くする。肘を体の近くに沿わせて下ろし、反動を使わず押し上げる。きつければ膝つきで。</p></div>
+    <div class="exercise"><h3>プランク</h3><span class="pill">20〜30秒 × 2セット</span><p>肘を肩の真下につき、頭からかかとまで一直線。腰が反ったり、お尻が上がりすぎたりしないようにお腹に力を入れる。</p></div>
+    <div class="exercise"><h3>スクワット</h3><span class="pill">15回 × 2セット</span><p>足を肩幅程度に開き、つま先と膝を同じ向きにする。お尻を後ろへ引きながらしゃがみ、足裏全体で床を押して立つ。</p></div>
+    <div class="exercise"><h3>リバースランジ</h3><span class="pill">左右10回 × 2セット</span><p>片足を後ろへ引いて腰を真下に下ろす。前足の膝はつま先と同じ向き。前足で床を押して戻り、左右交互に行う。</p></div>
+    <div class="exercise"><h3>グルートブリッジ</h3><span class="pill">15回 × 2セット</span><p>仰向けで膝を立てる。お腹に軽く力を入れ、お尻を締めながら腰を持ち上げる。腰を反らしすぎず、ゆっくり下ろす。</p></div>
+    <div class="exercise"><h3>デッドバグ</h3><span class="pill">左右10回 × 2セット</span><p>仰向けで手足を上げ、腰を床に近づける。反対側の腕と脚をゆっくり伸ばし、腰が浮かない範囲で戻す。</p></div>
+    <div class="exercise"><h3>Y-T-Wレイズ</h3><span class="pill">各姿勢8回 × 2セット</span><p>うつ伏せ、または上体を前傾して、腕でY・T・Wの形を作る。肩甲骨を軽く寄せ、反動を使わず小さく持ち上げる。</p></div>
+    <div class="exercise"><h3>スーパーマン</h3><span class="pill">10回 × 2セット</span><p>うつ伏せで腕を前に伸ばす。背中とお尻に力を入れて胸と脚を少し浮かせ、短く止めてゆっくり戻す。腰に痛みが出る高さまで上げない。</p></div>
+    <div class="exercise"><h3>リバーススノーエンジェル</h3><span class="pill">10回 × 2セット</span><p>うつ伏せで胸を軽く浮かせ、腕を体の横から頭の方向へ弧を描くように動かす。肩をすくめず、ゆっくり往復する。</p></div>
+    <div class="exercise"><h3>日曜：全身メニュー</h3><span class="pill">各種目の上記回数 × 2セット</span><p>腕立て伏せ・スクワット・グルートブリッジ・プランクを順番に行う。火・水の疲れが残っていたらセット数を減らす。</p></div>
+  </div>
+  <div class="note">始める前に5分ほど、肩回し・股関節回し・その場足踏みなどで体を温める。鋭い痛みや関節痛が出たら中止。</div>
+</section>
+
+<section id="check" hidden>
+  <div class="card">
+    <h2>今週の実施チェック</h2>
+    <p class="muted" id="weekLabel">今週の記録</p>
+    <div><strong id="count">0 / 16 種目</strong><span class="muted" id="percent">（0%）</span></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div id="checkItems"></div>
+    <div class="actions">
+      <button class="action primary" id="reset">今週のチェックをリセット</button>
+    </div>
+    <p class="muted">チェックはこのブラウザ内に保存されます。週が変わると新しい週の記録に切り替わります。</p>
+  </div>
+  <div class="note">全部できなくても大丈夫。継続を優先し、体調に合わせて休みや回数調整を入れよう。</div>
+</section>
+
+<footer>無理なく継続することが最優先。食事・睡眠・休息もトレーニングの一部。</footer>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('nav button')];
+tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.toggle('active',b===btn));
+  document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!==btn.dataset.tab);
+}));
+const plans=[
+ ['火｜胸・肩・腕',['腕立て伏せ','パイクプッシュアップ','ナロープッシュアップ','プランク']],
+ ['水｜脚・腹筋',['スクワット','リバースランジ','グルートブリッジ','デッドバグ']],
+ ['金｜背中・腕',['Y-T-Wレイズ','スーパーマン','リバーススノーエンジェル']],
+ ['日｜全身',['腕立て伏せ','スクワット','グルートブリッジ','プランク']]
+];
+function weekKey(d=new Date()){
+ const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
+ const day=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-day);
+ const yearStart=new Date(Date.UTC(x.getUTCFullYear(),0,1));
+ const week=Math.ceil((((x-yearStart)/86400000)+1)/7);
+ return `${x.getUTCFullYear()}-W${String(week).padStart(2,'0')}`;
+}
+const key='training-check-'+weekKey();
+const labels=plans.flatMap(([day,items])=>items.map(item=>({day,item})));
+let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+document.getElementById('weekLabel').textContent='記録期間：'+weekKey().replace('-W','年 第')+'週';
+const list=document.getElementById('checkItems');
+labels.forEach((entry,i)=>{
+ if(i===0||labels[i-1].day!==entry.day){
+  const h=document.createElement('h3');h.textContent=entry.day;h.style.margin='16px 0 3px';list.appendChild(h);
+ }
+ const row=document.createElement('div');row.className='checkrow';
+ const cb=document.createElement('input');cb.type='checkbox';cb.id='item-'+i;cb.checked=!!saved[i];
+ const label=document.createElement('label');label.htmlFor=cb.id;label.textContent=entry.item;
+ const small=document.createElement('small');small.textContent=entry.item.includes('余裕')?'できそうなときだけでOK':'完了したらチェック';
+ label.appendChild(small);row.append(cb,label);list.appendChild(row);
+ cb.addEventListener('change',()=>{saved[i]=cb.checked;localStorage.setItem(key,JSON.stringify(saved));update();});
+});
+function update(){
+ const done=labels.filter((_,i)=>!!saved[i]).length;
+ const pct=Math.round(done/labels.length*100);
+ document.getElementById('count').textContent=`${done} / ${labels.length} 種目`;
+ document.getElementById('percent').textContent=`（${pct}%）`;
+ document.getElementById('bar').style.width=pct+'%';
+}
+document.getElementById('reset').addEventListener('click',()=>{
+ if(!confirm('今週のチェックをすべてリセットしますか？'))return;
+ saved={};localStorage.removeItem(key);list.querySelectorAll('input').forEach(cb=>cb.checked=false);update();
+});
+update();
+</script>
+</body>
+</html>
